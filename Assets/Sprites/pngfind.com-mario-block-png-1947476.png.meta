@@ -1,0 +1,1187 @@
+fileFormatVersion: 2
+guid: 4098672e1565c4570963a4fe3d42cf39
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_0
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4762e7e61cff84e42910ac71ec4a6891
+      internalID: -180225511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_1
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e0752deea534d4887f8ce2cacd558f
+      internalID: 2032541861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_2
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d1e386398994870afb93fd38dc160e
+      internalID: -2060038415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_3
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a9cf93713a94355a711d9699d7872c
+      internalID: 707527958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_4
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c077d0e11142840978c184ef1892d901
+      internalID: 1557407703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_5
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0879a297d35241c4a9399c274028b7e
+      internalID: -2036623118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_6
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea23c280d64094275b52139aaba48ca2
+      internalID: -990887560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_7
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416b794d8f2954b94a3958c52f1d246a
+      internalID: -8314182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_8
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 820
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bdbddb4ed5d84eb5ae7736830f4f3b5
+      internalID: -391898541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_9
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417a5eb33c2c34a68bb53fddb6819d68
+      internalID: -695609044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_10
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec61ce4a975a2423487ff25163db247a
+      internalID: 174395821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_11
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ec50ce4174745968d2fc2c684d1e72
+      internalID: 142173633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_12
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f9a88b1b1144b3a8a37d103ad451bc
+      internalID: 183202008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_13
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260a59a9a15eb4cc59c45496e330c0da
+      internalID: -1916783665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_14
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f00a46a105c405fb9b3b665fd5c16a
+      internalID: -1314822810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_15
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a2ec1cff0d44d908b032abb713e3d9
+      internalID: 667762475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_16
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9808cc7b5e64dd89edbd6ca56282b1
+      internalID: -417746743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_17
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 640
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894ecfa6f59cd468cb97db54bd27210d
+      internalID: 947452032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 290
+        width: 140
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb942c8c393f84f5ca80262562b2eee2
+      internalID: 473249813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_19
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e734945f9abf14d87aaea2f3e21edeea
+      internalID: -818134150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_20
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734691c242e084efcbae46028dd441a6
+      internalID: 35902027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_21
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9363a5bbeda684960b2568f79adc528c
+      internalID: -1264918486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_22
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f819f5d17f14b868a5edc9f6a36791
+      internalID: -220982845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_23
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21f071df2a244ed591f97b129ed6b58
+      internalID: 746916589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_24
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2bf781295c7454ea7800823eb98aa7
+      internalID: -941455431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_25
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05efd7b64319c472da542db90bc403bb
+      internalID: 664487445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_26
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7fc4a2932cf4f9582e02c41878acb9
+      internalID: 692312740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_27
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 460
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9659d52b923b34b01b40b4ce5d080778
+      internalID: 2000804620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_28
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e6b46fe9666845b984adfc77ede9932
+      internalID: 1118820877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_29
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc93efa507e004e4890bfdf19a465bbd
+      internalID: 577293821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_30
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1a1688997fe42d5a11e84097b677e2
+      internalID: -1164947010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_31
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5233065aaeadf49baa7a4657b6f1bb0a
+      internalID: 1876328458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_32
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68033bec48b204f4298d51cd8c344b05
+      internalID: -581037608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_33
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80dacac09e8f942fea0c388e5a4f3340
+      internalID: -1128665758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_34
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce54115ee945348e6b71a73d902255df
+      internalID: 2092325333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_35
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e36f732dcd534550ab2a83794f399b2
+      internalID: -868206798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_36
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 280
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11825c47b6fd3482b80bf9dcf098bd56
+      internalID: 1394685758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 150
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fc5a217d8d44b22b763fe9dace8b80
+      internalID: -2087696337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_38
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6017dd660b11c4a80a4809332107a6ee
+      internalID: 196799644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_39
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eaf6de9bf540466cac5a8d5190f9029
+      internalID: -509841245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_40
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767cd61ef22824f35a0694e04e4df537
+      internalID: 579385545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_41
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38744ffc979174261b356107a6bad6bb
+      internalID: -595916575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_42
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7bfc2acc9b04022835c125752465c7
+      internalID: -196849055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_43
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0c40a2bab8243fd921d9d048a4d975
+      internalID: -971152546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_44
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d4866cf297a4479bb67f7b9355f61c
+      internalID: -1913852305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_45
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a503f84615f0b49bb868638376e7631f
+      internalID: 1407520667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngfind.com-mario-block-png-1947476_46
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 100
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcd0a4fb7b4394f5b8f101760005ad93
+      internalID: -1925184009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pngfind.com-mario-block-png-1947476_0: -180225511
+      pngfind.com-mario-block-png-1947476_1: 2032541861
+      pngfind.com-mario-block-png-1947476_10: 174395821
+      pngfind.com-mario-block-png-1947476_11: 142173633
+      pngfind.com-mario-block-png-1947476_12: 183202008
+      pngfind.com-mario-block-png-1947476_13: -1916783665
+      pngfind.com-mario-block-png-1947476_14: -1314822810
+      pngfind.com-mario-block-png-1947476_15: 667762475
+      pngfind.com-mario-block-png-1947476_16: -417746743
+      pngfind.com-mario-block-png-1947476_17: 947452032
+      pngfind.com-mario-block-png-1947476_18: 473249813
+      pngfind.com-mario-block-png-1947476_19: -818134150
+      pngfind.com-mario-block-png-1947476_2: -2060038415
+      pngfind.com-mario-block-png-1947476_20: 35902027
+      pngfind.com-mario-block-png-1947476_21: -1264918486
+      pngfind.com-mario-block-png-1947476_22: -220982845
+      pngfind.com-mario-block-png-1947476_23: 746916589
+      pngfind.com-mario-block-png-1947476_24: -941455431
+      pngfind.com-mario-block-png-1947476_25: 664487445
+      pngfind.com-mario-block-png-1947476_26: 692312740
+      pngfind.com-mario-block-png-1947476_27: 2000804620
+      pngfind.com-mario-block-png-1947476_28: 1118820877
+      pngfind.com-mario-block-png-1947476_29: 577293821
+      pngfind.com-mario-block-png-1947476_3: 707527958
+      pngfind.com-mario-block-png-1947476_30: -1164947010
+      pngfind.com-mario-block-png-1947476_31: 1876328458
+      pngfind.com-mario-block-png-1947476_32: -581037608
+      pngfind.com-mario-block-png-1947476_33: -1128665758
+      pngfind.com-mario-block-png-1947476_34: 2092325333
+      pngfind.com-mario-block-png-1947476_35: -868206798
+      pngfind.com-mario-block-png-1947476_36: 1394685758
+      pngfind.com-mario-block-png-1947476_37: -2087696337
+      pngfind.com-mario-block-png-1947476_38: 196799644
+      pngfind.com-mario-block-png-1947476_39: -509841245
+      pngfind.com-mario-block-png-1947476_4: 1557407703
+      pngfind.com-mario-block-png-1947476_40: 579385545
+      pngfind.com-mario-block-png-1947476_41: -595916575
+      pngfind.com-mario-block-png-1947476_42: -196849055
+      pngfind.com-mario-block-png-1947476_43: -971152546
+      pngfind.com-mario-block-png-1947476_44: -1913852305
+      pngfind.com-mario-block-png-1947476_45: 1407520667
+      pngfind.com-mario-block-png-1947476_46: -1925184009
+      pngfind.com-mario-block-png-1947476_5: -2036623118
+      pngfind.com-mario-block-png-1947476_6: -990887560
+      pngfind.com-mario-block-png-1947476_7: -8314182
+      pngfind.com-mario-block-png-1947476_8: -391898541
+      pngfind.com-mario-block-png-1947476_9: -695609044
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
