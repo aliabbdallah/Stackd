@@ -17,6 +17,6 @@ MonoBehaviour:
   moveDistance: 2
   blockFriction: 2.25
   blockBounciness: 0
-  windStrength: 0.2
+  windStrength: 0.26
   windFrequency: 1
   hasRandomEvents: 0

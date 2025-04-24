@@ -39,14 +39,11 @@ public class GameManager : MonoBehaviour
     
     public void SpawnNewBlock()
     {
-        // Only spawn if the game is still active
         if (!isGameActive) return;
         
-        // Get the camera's position
         Camera mainCamera = Camera.main;
         if (mainCamera == null) return;
         
-        // Get the camera follow script to access its vertical offset
         CameraFollow cameraFollow = mainCamera.GetComponent<CameraFollow>();
         float verticalOffset = 0f;
         if (cameraFollow != null)
@@ -54,7 +51,6 @@ public class GameManager : MonoBehaviour
             verticalOffset = cameraFollow.verticalOffset;
         }
         
-        // For the first few blocks, use a fixed spawn position
         if (score < 3)
         {
             // Fixed spawn position for the first few blocks
@@ -138,14 +134,33 @@ public class GameManager : MonoBehaviour
         return lastPlacedBlock;
     }
     
-    public void GameOver()
+  public void GameOver()
+{
+    Debug.Log("Game Over! Final Score: " + score);
+    
+    isGameActive = false; // End the game
+    
+    // Update final score text
+    if (gameOverPanel != null)
     {
-        Debug.Log("Game Over! Final Score: " + score);
+        // Find the Final Score text in the game over panel and update it
+        TextMeshProUGUI finalScoreText = gameOverPanel.transform.Find("Final Score").GetComponent<TextMeshProUGUI>();
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Final Score: " + score.ToString();
+        }
         
-        isGameActive = false; // End the game
         // Show the game over panel
         gameOverPanel.SetActive(true);
     }
+    
+    // Update the leaderboard
+    LeaderboardManager leaderboardManager = GetComponent<LeaderboardManager>();
+    if (leaderboardManager != null)
+    {
+        leaderboardManager.LoadLeaderboard(score);
+    }
+}
     
     public void RestartGame()
     {
