@@ -1,40 +1,36 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System;
 
 namespace Game
 {
-    public class SignUpUI : MonoBehaviour
+    public class SignUpView : MonoBehaviour
     {
         public TMP_InputField usernameInput;
         public TMP_InputField emailInput;
         public TMP_InputField passwordInput;
         public Button signUpButton;
-        public APIManager apiManager;
         public GameObject errorPanel;
         public Button okButton;
 
+        // Event for sign up button click
+        public event Action<string, string, string> OnSignUpAttempt;
+        public event Action OnErrorCleared;
+
         void Start()
         {
-            signUpButton.onClick.AddListener(OnSignUpButtonClicked);
+            signUpButton.onClick.AddListener(HandleSignUpButtonClicked);
             okButton.onClick.AddListener(ClearError);
             errorPanel.SetActive(false);
         }
 
-        void OnSignUpButtonClicked()
+        private void HandleSignUpButtonClicked()
         {
             string username = usernameInput.text;
             string email = emailInput.text;
             string password = passwordInput.text;
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            {
-                ShowError("All fields are required");
-                return;
-            }
-
-            apiManager.RegisterUser(username, email, password);
+            OnSignUpAttempt?.Invoke(username, email, password);
         }
 
         public void ShowError(string message)
@@ -46,17 +42,14 @@ namespace Game
         public void ClearError()
         {
             errorPanel.SetActive(false);
+            OnErrorCleared?.Invoke();
         }
 
-        public void HandleRegistrationSuccess()
+        public void ClearFields()
         {
-            // Clear the input fields
             usernameInput.text = "";
             emailInput.text = "";
             passwordInput.text = "";
-            
-            // Load the login scene directly
-            SceneManager.LoadScene("Log In");
         }
     }
-}
+} 

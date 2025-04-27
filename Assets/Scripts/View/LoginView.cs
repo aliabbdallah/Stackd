@@ -1,38 +1,34 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System;
 
 namespace Game
 {
-    public class LoginUI : MonoBehaviour
+    public class LoginView : MonoBehaviour
     {
         public TMP_InputField usernameInput;
         public TMP_InputField passwordInput;
         public Button loginButton;
-        public APIManager apiManager;
         public GameObject errorPanel;
         public Button okButton;
 
+        // Event for login button click
+        public event Action<string, string> OnLoginAttempt;
+        public event Action OnErrorCleared;
+
         void Start()
         {
-            loginButton.onClick.AddListener(OnLoginButtonClicked);
+            loginButton.onClick.AddListener(HandleLoginButtonClicked);
             okButton.onClick.AddListener(ClearError);
             errorPanel.SetActive(false);
         }
 
-        void OnLoginButtonClicked()
+        private void HandleLoginButtonClicked()
         {
             string username = usernameInput.text;
             string password = passwordInput.text;
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-            {
-                ShowError("Please enter both username and password");
-                return;
-            }
-
-            apiManager.LoginUser(username, password);
+            OnLoginAttempt?.Invoke(username, password);
         }
 
         public void ShowError(string message)
@@ -44,12 +40,7 @@ namespace Game
         public void ClearError()
         {
             errorPanel.SetActive(false);
-        }
-
-        public void HandleLoginSuccess()
-        {
-            ClearError();
-            SceneManager.LoadScene("Main Menu");
+            OnErrorCleared?.Invoke();
         }
     }
 } 

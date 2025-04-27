@@ -475,6 +475,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535291355}
   m_CullTransparentMesh: 1
+--- !u!1 &788121304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788121307}
+  - component: {fileID: 788121306}
+  - component: {fileID: 788121305}
+  m_Layer: 0
+  m_Name: MainMenuView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &788121305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788121304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0e44e20f48841259ef1df0d573a16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuView: {fileID: 788121306}
+--- !u!114 &788121306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788121304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3753588dc7f014f3fa85bee58b963431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  summerButton: {fileID: 2095232171}
+  winterButton: {fileID: 1689696177}
+  autumnButton: {fileID: 450203309}
+  mainButton: {fileID: 7531808764777394515, guid: 5a85b94063c1149ac95f4fc575d1b88d, type: 3}
+  loginButton: {fileID: 7997246974749101957, guid: d46692ad319cb4f1d9135af1ac336cac, type: 3}
+--- !u!4 &788121307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788121304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585, y: 1213.4445, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &936441071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1243,8 +1306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseUrl: http://localhost:3000
-  loginUI: {fileID: 0}
-  signUpUI: {fileID: 0}
+  loginView: {fileID: 0}
+  signUpView: {fileID: 0}
 --- !u!4 &1613579184
 Transform:
   m_ObjectHideFlags: 0
@@ -1659,3 +1722,4 @@ SceneRoots:
   - {fileID: 1181840482}
   - {fileID: 1897652395}
   - {fileID: 1613579184}
+  - {fileID: 788121307}

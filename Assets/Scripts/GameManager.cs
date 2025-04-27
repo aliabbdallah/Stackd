@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
     public float spawnY = 10f;  // Adjust this value as needed
 
     [Header("UI References")]
-    public GameObject gameOverPanel;
-    public TextMeshProUGUI scoreText;
+    public GameOverView gameOverView;
     
     [Header("Ground Reference")]
     public GameObject Ground; // Reference to the ground GameObject
@@ -27,12 +26,6 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        // Initialize score text
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
-        
         // Spawn the first block to start the game
         SpawnNewBlock();
     }
@@ -87,12 +80,6 @@ public class GameManager : MonoBehaviour
         score++;
         Debug.Log("Score: " + score);
         
-        // Update UI score text
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
-        
         // Spawn next block with a delay to let the camera adjust
         StartCoroutine(SpawnBlockWithDelay());
     } 
@@ -134,33 +121,37 @@ public class GameManager : MonoBehaviour
         return lastPlacedBlock;
     }
     
-  public void GameOver()
-{
-    Debug.Log("Game Over! Final Score: " + score);
-    
-    isGameActive = false; // End the game
-    
-    // Update final score text
-    if (gameOverPanel != null)
+    public void GameOver()
     {
-        // Find the Final Score text in the game over panel and update it
-        TextMeshProUGUI finalScoreText = gameOverPanel.transform.Find("Final Score").GetComponent<TextMeshProUGUI>();
-        if (finalScoreText != null)
+        Debug.Log("Game Over! Final Score: " + score);
+        isGameActive = false; // End the game
+
+        // Show the game over panel using MVC
+        if (gameOverView != null)
         {
-            finalScoreText.text = "Final Score: " + score.ToString();
+            gameOverView.Show(score);
         }
-        
-        // Show the game over panel
-        gameOverPanel.SetActive(true);
+        else
+        {
+            Debug.LogWarning("[GameManager] No GameOverView assigned.");
+        }
+
+        // Update the leaderboard
+        LeaderboardController leaderboardController = GetComponent<LeaderboardController>();
+        if (leaderboardController == null)
+        {
+            leaderboardController = FindObjectOfType<LeaderboardController>();
+        }
+        if (leaderboardController != null)
+        {
+            Debug.Log("[GameManager] Calling LoadLeaderboard with score: " + score);
+            leaderboardController.LoadLeaderboard(score);
+        }
+        else
+        {
+            Debug.LogWarning("[GameManager] No LeaderboardController found in the scene.");
+        }
     }
-    
-    // Update the leaderboard
-    LeaderboardManager leaderboardManager = GetComponent<LeaderboardManager>();
-    if (leaderboardManager != null)
-    {
-        leaderboardManager.LoadLeaderboard(score);
-    }
-}
     
     public void RestartGame()
     {
@@ -190,15 +181,11 @@ public class GameManager : MonoBehaviour
         
         // Reset score
         score = 0;
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
         
-        // Hide game over panel
-        if (gameOverPanel != null)
+        // Hide game over panel using MVC
+        if (gameOverView != null)
         {
-            gameOverPanel.SetActive(false);
+            gameOverView.Hide();
         }
 
         // Reactivate the ground

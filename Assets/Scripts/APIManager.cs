@@ -10,8 +10,8 @@ namespace Game
     public class APIManager : MonoBehaviour
     {
         public string baseUrl = "http://localhost:3000";
-        public LoginUI loginUI;
-        public SignUpUI signUpUI;
+        public LoginView loginView;
+        public SignUpView signUpView;
         
         // Session token for authentication
         private string sessionToken;
@@ -74,21 +74,21 @@ namespace Game
             return req;
         }
 
-        public void RegisterUser(string username, string email, string password)
+        public void RegisterUser(string username, string email, string password, System.Action onSuccess, System.Action<string> onError)
         {
             if (!IsValidEmail(email))
             {
-                signUpUI.ShowError("Invalid email format");
+                onError?.Invoke("Invalid email format");
                 return;
             }
             StartCoroutine(CheckEmailAvailability(email, (isAvailable) => {
                 if (isAvailable)
                 {
-                    StartCoroutine(RegisterUserCoroutine(username, email, password));
+                    StartCoroutine(RegisterUserCoroutine(username, email, password, onSuccess, onError));
                 }
                 else
                 {
-                    signUpUI.ShowError("Email is already in use");
+                    onError?.Invoke("Email is already in use");
                 }
             }));
         }
@@ -139,57 +139,12 @@ namespace Game
             }
         }
 
-        public void LoginUser(string email, string password)
+        public void LoginUser(string email, string password, System.Action<int, string, string, string> onSuccess, System.Action<string> onError)
         {
-            StartCoroutine(LoginUserCoroutine(email, password));
+            StartCoroutine(LoginUserCoroutine(email, password, onSuccess, onError));
         }
 
-        IEnumerator RegisterUserCoroutine(string username, string email, string password)
-        {
-            string json = JsonUtility.ToJson(new RegisterPayload(username, email, password));
-            Debug.Log($"Attempting to register with payload: {json}");
-            
-            UnityWebRequest req = new UnityWebRequest(baseUrl + "/register", "POST");
-            byte[] body = Encoding.UTF8.GetBytes(json);
-            req.uploadHandler = new UploadHandlerRaw(body);
-            req.downloadHandler = new DownloadHandlerBuffer();
-            req.SetRequestHeader("Content-Type", "application/json");
-
-            yield return req.SendWebRequest();
-
-            Debug.Log($"Registration response status: {req.result}");
-            Debug.Log($"Registration response: {req.downloadHandler.text}");
-
-            if (req.result == UnityWebRequest.Result.Success)
-            {
-                try
-                {
-                    var response = JsonUtility.FromJson<RegisterResponse>(req.downloadHandler.text);
-                    if (response.success)
-                    {
-                        Debug.Log("Registration Success!");
-                        signUpUI.HandleRegistrationSuccess();
-                    }
-                    else
-                    {
-                        Debug.LogError($"Registration failed: {response.error.message}");
-                        signUpUI.ShowError(response.error.message);
-                    }
-                }
-                catch (System.Exception e)
-                {
-                    Debug.LogError($"Failed to parse registration response: {e.Message}");
-                    signUpUI.ShowError("Failed to process registration response");
-                }
-            }
-            else
-            {
-                Debug.LogError($"Registration request failed: {req.error}");
-                HandleError(req);
-            }
-        }
-
-        IEnumerator LoginUserCoroutine(string email, string password)
+        IEnumerator LoginUserCoroutine(string email, string password, System.Action<int, string, string, string> onSuccess, System.Action<string> onError)
         {
             string json = JsonUtility.ToJson(new LoginPayload(email, password));
             UnityWebRequest req = new UnityWebRequest(baseUrl + "/login", "POST");
@@ -213,23 +168,25 @@ namespace Game
                         PlayerPrefs.SetString("Username", response.data.username);
                         PlayerPrefs.SetInt("UserID", response.data.id);
                         PlayerPrefs.Save();
-                        
-                        loginUI.HandleLoginSuccess();
+                        // Call success callback
+                        onSuccess?.Invoke(response.data.id, response.data.username, response.data.email, response.token);
                     }
                     else
                     {
-                        HandleLoginError(req);
+                        // Call error callback with error message
+                        onError?.Invoke(response.error != null ? response.error.message : "Login failed");
                     }
                 }
                 catch (System.Exception e)
                 {
                     Debug.LogError($"Failed to parse login response: {e.Message}");
-                    loginUI.ShowError("Failed to process login response");
+                    onError?.Invoke("Failed to process login response");
                 }
             }
             else
             {
-                HandleLoginError(req);
+                // Call error callback with error message
+                onError?.Invoke(req.error ?? "Unable to connect to the server. Please try again later.");
             }
         }
 
@@ -351,37 +308,56 @@ namespace Game
                     if (err.error.details.password) errorMessage += "\n- Invalid password";
                     if (err.error.details.username) errorMessage += "\n- Invalid username";
                 }
-                signUpUI.ShowError(errorMessage);
+                Debug.LogError(errorMessage);
             }
             catch
             {
-                signUpUI.ShowError("An unexpected error occurred");
+                Debug.LogError("An unexpected error occurred");
             }
         }
 
-        void HandleLoginError(UnityWebRequest req)
+        IEnumerator RegisterUserCoroutine(string username, string email, string password, System.Action onSuccess, System.Action<string> onError)
         {
-            try
+            string json = JsonUtility.ToJson(new RegisterPayload(username, email, password));
+            Debug.Log($"Attempting to register with payload: {json}");
+            
+            UnityWebRequest req = new UnityWebRequest(baseUrl + "/register", "POST");
+            byte[] body = Encoding.UTF8.GetBytes(json);
+            req.uploadHandler = new UploadHandlerRaw(body);
+            req.downloadHandler = new DownloadHandlerBuffer();
+            req.SetRequestHeader("Content-Type", "application/json");
+
+            yield return req.SendWebRequest();
+
+            Debug.Log($"Registration response status: {req.result}");
+            Debug.Log($"Registration response: {req.downloadHandler.text}");
+
+            if (req.result == UnityWebRequest.Result.Success)
             {
-                ErrorResponse err = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
-                string errorMessage = "";
-                
-                if (err.error.details != null)
+                try
                 {
-                    if (err.error.details.email) errorMessage += "Invalid email address\n";
-                    if (err.error.details.password) errorMessage += "Invalid password\n";
+                    var response = JsonUtility.FromJson<RegisterResponse>(req.downloadHandler.text);
+                    if (response.success)
+                    {
+                        Debug.Log("Registration Success!");
+                        onSuccess?.Invoke();
+                    }
+                    else
+                    {
+                        Debug.LogError($"Registration failed: {response.error.message}");
+                        onError?.Invoke(response.error.message);
+                    }
                 }
-                
-                if (string.IsNullOrEmpty(errorMessage))
+                catch (System.Exception e)
                 {
-                    errorMessage = err.error.message;
+                    Debug.LogError($"Failed to parse registration response: {e.Message}");
+                    onError?.Invoke("Failed to process registration response");
                 }
-                
-                loginUI.ShowError(errorMessage.Trim());
             }
-            catch
+            else
             {
-                loginUI.ShowError("Unable to connect to the server. Please try again later.");
+                Debug.LogError($"Registration request failed: {req.error}");
+                onError?.Invoke(req.error ?? "Unable to connect to the server. Please try again later.");
             }
         }
     }
