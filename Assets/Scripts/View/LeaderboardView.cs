@@ -56,7 +56,7 @@ public class LeaderboardView : MonoBehaviour
     }
 }
 
-// Helper class for leaderboard entries (move to a shared Model folder if needed)
+
 [System.Serializable]
 public class LeaderboardEntry
 {

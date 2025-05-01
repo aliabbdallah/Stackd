@@ -10,7 +10,7 @@ public class ScoreUI : MonoBehaviour
     
     private void OnEnable()
     {
-        // Subscribe to events
+        
         GameManager.OnScoreChanged += UpdateScore;
         GameManager.OnGameOver += ShowGameOverScreen;
         GameManager.OnGameRestart += HideGameOverScreen;
@@ -18,7 +18,7 @@ public class ScoreUI : MonoBehaviour
     
     private void OnDisable()
     {
-        // Unsubscribe from events
+        
         GameManager.OnScoreChanged -= UpdateScore;
         GameManager.OnGameOver -= ShowGameOverScreen;
         GameManager.OnGameRestart -= HideGameOverScreen;

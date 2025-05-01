@@ -7,24 +7,24 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    // Events for the Observer Pattern
+    
     public static event Action<int> OnScoreChanged;
     public static event Action<int> OnGameOver;
     public static event Action OnGameRestart;
 
     [Header("Block Settings")]
     public GameObject blockPrefab;
-    public float SpawnDistanceAfterThirdBlock = 10f;  // Constant distance above camera position
-    public float spawnY = 10f;  // Adjust this value as needed
+    public float SpawnDistanceAfterThirdBlock = 10f;  
+    public float spawnY = 10f;  
 
     [Header("UI References")]
     public GameOverView gameOverView;
-    public GameObject pausePanel; // Assign this in the Inspector
+    public GameObject pausePanel; 
     
     [Header("Ground Reference")]
-    public GameObject Ground; // Reference to the ground GameObject
+    public GameObject Ground; 
     
-    // Changed to public so the camera can access it
+    
     public GameObject currentBlock;
     private List<GameObject> placedBlocks = new List<GameObject>();
     private GameObject lastPlacedBlock;
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         
         if (score < 3)
         {
-            // Fixed spawn position for the first few blocks
+            
             Vector3 spawnPosition = new Vector3(0f, spawnY, 0f);
             currentBlock = Instantiate(blockPrefab, spawnPosition, Quaternion.identity);
         }
@@ -79,46 +79,46 @@ public class GameManager : MonoBehaviour
     
     public void BlockSettled()
     {
-        // Add the current block to our list of placed blocks
+        
         if (currentBlock != null)
         {
             placedBlocks.Add(currentBlock);
             lastPlacedBlock = currentBlock;
             
-            // Update highest block position
+            
             UpdateHighestBlockPosition();
 
-            // Deactivate ground after first block is placed
+            
             if (score == 0 && Ground != null)
             {
                 Ground.SetActive(false);
             }
         }
         
-        // Increment score and notify observers
+        
         score++;
         OnScoreChanged?.Invoke(score);        
-        // Spawn next block with a delay to let the camera adjust
+        
         StartCoroutine(SpawnBlockWithDelay());
     } 
     
     private IEnumerator SpawnBlockWithDelay()
     {
-        // Wait for the camera to adjust
+        
         yield return new WaitForSeconds(0.5f);
         
-        // Now spawn the next block
+        
         SpawnNewBlock();
     }
     
     private void UpdateHighestBlockPosition()
     {
-        // Find the highest Y position among all placed blocks
+        
         foreach (GameObject block in placedBlocks)
         {
             if (block != null)
             {
-                // Use the top of the block
+                
                 Renderer renderer = block.GetComponent<Renderer>();
                 if (renderer != null)
                 {
@@ -144,10 +144,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over! Final Score: " + score);
         gameStateContext.SetState(new GameOverState());
         
-        // Notify observers about game over
+        
         OnGameOver?.Invoke(score);
 
-        // Update the leaderboard
+        
         LeaderboardController leaderboardController = GetComponent<LeaderboardController>();
         if (leaderboardController == null)
         {
@@ -166,17 +166,17 @@ public class GameManager : MonoBehaviour
     
     public void RestartGame()
     {
-        // Stop any running coroutines that might spawn blocks
+        
         StopAllCoroutines();
         
-        // Destroy the current moving block
+        
         if (currentBlock != null)
         {
             Destroy(currentBlock);
             currentBlock = null;
         }
         
-        // Clear existing placed blocks
+        
         foreach (GameObject block in placedBlocks)
         {
             if (block != null)
@@ -185,46 +185,46 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        // Clear lists and reset variables
+        
         placedBlocks.Clear();
         lastPlacedBlock = null;
         highestBlockY = 0f;
         
-        // Reset score
+        
         score = 0;
         OnScoreChanged?.Invoke(score);
         
-        // Notify observers about game restart
+        
         OnGameRestart?.Invoke();
         
-        // Reactivate the ground
+        
         if (Ground != null)
         {
             Ground.SetActive(true);
         }
         
-        // Reactivate the game state
+        
         gameStateContext.SetState(new PlayingState());
         
-        // Reset camera position
+        
         Camera mainCamera = Camera.main;
         if (mainCamera != null)
         {
             CameraFollow cameraFollow = mainCamera.GetComponent<CameraFollow>();
             if (cameraFollow != null)
             {
-                // Reset camera to initial position
+                
                 mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraFollow.minY, mainCamera.transform.position.z);
             }
         }
         
-        // Wait a frame before spawning new block to ensure all cleanup is complete
+        
         StartCoroutine(SpawnFirstBlockNextFrame());
     }
 
     private IEnumerator SpawnFirstBlockNextFrame()
     {
-        yield return null; // Wait one frame
+        yield return null; 
         SpawnNewBlock();
     }
 

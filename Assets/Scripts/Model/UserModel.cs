@@ -1,6 +1,6 @@
 namespace Game
 {
-    // Pure data model for user information
+    
     public class UserModel
     {
         public int Id { get; set; }

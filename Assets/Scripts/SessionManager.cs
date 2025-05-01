@@ -16,18 +16,18 @@ public class SessionManager : MonoBehaviour
     
     IEnumerator CheckSession()
     {
-        // Check for saved session token
+        
         string token = PlayerPrefs.GetString("SessionToken", "");
         
         if (string.IsNullOrEmpty(token))
         {
-            // No session token, go to login
+            
             Debug.Log("No saved session, redirecting to login");
             SceneManager.LoadScene(loginScene);
             yield break;
         }
         
-        // Find API Manager
+        
         APIManager apiManager = FindObjectOfType<APIManager>();
         if (apiManager == null)
         {
@@ -36,16 +36,16 @@ public class SessionManager : MonoBehaviour
             yield break;
         }
         
-        // Try to validate the session
+        
         bool isValid = false;
         float timer = 0;
         
-        // Start validation
+        
         apiManager.StartCoroutine(apiManager.ValidateSession((valid) => {
             isValid = valid;
         }));
         
-        // Wait for validation or timeout
+        
         while (!isValid && timer < timeoutSeconds)
         {
             timer += Time.deltaTime;
@@ -54,13 +54,13 @@ public class SessionManager : MonoBehaviour
         
         if (isValid)
         {
-            // Session is valid, go to main menu
+            
             Debug.Log("Session valid, going to main menu");
             SceneManager.LoadScene(mainMenuScene);
         }
         else
         {
-            // Invalid or expired session, go to login
+            
             Debug.Log("Session invalid or expired, redirecting to login");
             SceneManager.LoadScene(loginScene);
         }

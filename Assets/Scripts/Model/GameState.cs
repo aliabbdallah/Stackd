@@ -20,12 +20,12 @@ namespace GameStatePattern
 
         public void Update(GameManager gameManager)
         {
-            // Game logic while playing (could be expanded)
+            
         }
 
         public void Exit(GameManager gameManager)
         {
-            // Cleanup or pause logic if needed
+            
         }
     }
 
@@ -42,7 +42,7 @@ namespace GameStatePattern
 
         public void Update(GameManager gameManager)
         {
-            // Game over logic (wait for restart, etc.)
+            
         }
 
         public void Exit(GameManager gameManager)
@@ -66,7 +66,7 @@ namespace GameStatePattern
 
         public void Update(GameManager gameManager)
         {
-            // Pause menu logic or listen for unpause
+            
         }
 
         public void Exit(GameManager gameManager)

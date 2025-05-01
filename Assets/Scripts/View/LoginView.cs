@@ -13,7 +13,7 @@ namespace Game
         public GameObject errorPanel;
         public Button okButton;
 
-        // Event for login button click
+        
         public event Action<string, string> OnLoginAttempt;
         public event Action OnErrorCleared;
 

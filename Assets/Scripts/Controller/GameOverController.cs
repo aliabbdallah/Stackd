@@ -15,7 +15,7 @@ public class GameOverController : MonoBehaviour
                 gameOverView.Hide();
             };
             gameOverView.OnMainMenuClicked += () => {
-                SceneManager.LoadScene(3); // Or use SceneManager.LoadScene("Main Menu");
+                SceneManager.LoadScene(3); 
             };
         }
     }

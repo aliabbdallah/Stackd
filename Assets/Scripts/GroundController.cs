@@ -7,7 +7,6 @@ public class GroundController : MonoBehaviour
 {
     void Start()
     {
-        // Tag the ground for collision detection
         gameObject.tag = "Ground";
     }
 }

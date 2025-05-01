@@ -13,12 +13,12 @@ namespace Game
         public LoginView loginView;
         public SignUpView signUpView;
         
-        // Session token for authentication
+        
         private string sessionToken;
         
         void Start()
         {
-            // Try to load saved session token
+            
             sessionToken = PlayerPrefs.GetString("SessionToken", "");
         }
 
@@ -63,7 +63,7 @@ namespace Game
             public string email;
         }
 
-        // Method to add auth header to requests
+        
         public UnityWebRequest CreateAuthorizedRequest(string url, string method)
         {
             UnityWebRequest req = new UnityWebRequest(url, method);
@@ -76,25 +76,25 @@ namespace Game
 
         public bool IsValidEmail(string email)
         {
-            // Remove strict validation, just check if not empty
+            
             return !string.IsNullOrEmpty(email);
         }
 
         public bool IsValidUsername(string username)
         {
-            // Remove strict validation, just check if not empty
+            
             return !string.IsNullOrEmpty(username);
         }
 
         public bool IsValidPassword(string password)
         {
-            // Only check for minimum length of 7 characters
+            
             return !string.IsNullOrEmpty(password) && password.Length >= 7;
         }
 
         public void RegisterUser(string username, string email, string password, System.Action onSuccess, System.Action<string> onError)
         {
-            // Only validate password length
+            
             if (!IsValidPassword(password))
             {
                 onError?.Invoke("Password must be at least 7 characters long");
@@ -169,18 +169,18 @@ namespace Game
                     var response = JsonUtility.FromJson<LoginResponse>(req.downloadHandler.text);
                     if (response.success)
                     {
-                        // Save the session token
+                        
                         sessionToken = response.token;
                         PlayerPrefs.SetString("SessionToken", sessionToken);
                         PlayerPrefs.SetString("Username", response.data.username);
                         PlayerPrefs.SetInt("UserID", response.data.id);
                         PlayerPrefs.Save();
-                        // Call success callback
+                        
                         onSuccess?.Invoke(response.data.id, response.data.username, response.data.email, response.token);
                     }
                     else
                     {
-                        // Call error callback with error message
+                        
                         onError?.Invoke(response.error != null ? response.error.message : "Login failed");
                     }
                 }
@@ -192,12 +192,12 @@ namespace Game
             }
             else
             {
-                // Call error callback with error message
+                
                 onError?.Invoke(req.error ?? "Unable to connect to the server. Please try again later.");
             }
         }
 
-        // Updated submit score with authorization
+        
         public void SubmitScore(int score, System.Action<bool> callback = null)
         {
             StartCoroutine(SubmitScoreCoroutine(score, callback));
@@ -207,7 +207,7 @@ namespace Game
         {
             string json = JsonUtility.ToJson(new ScorePayload(score));
             
-            // Use authorized request
+            
             UnityWebRequest req = CreateAuthorizedRequest(baseUrl + "/scores", "POST");
             byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
             req.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -227,10 +227,10 @@ namespace Game
             {
                 Debug.LogError("Error submitting score: " + req.error);
                 
-                // Check for auth errors
+                
                 if (req.responseCode == 401 || req.responseCode == 403)
                 {
-                    // Session expired, redirect to login
+                    
                     HandleSessionExpired();
                 }
             }
@@ -241,20 +241,20 @@ namespace Game
             }
         }
         
-        // Handle expired sessions
+        
         private void HandleSessionExpired()
         {
-            // Clear token
+            
             sessionToken = "";
             PlayerPrefs.DeleteKey("SessionToken");
             PlayerPrefs.Save();
             
-            // Show message and redirect to login
+            
             Debug.Log("Session expired. Please log in again.");
             SceneManager.LoadScene("Log In");
         }
         
-        // Add logout functionality
+        
         public void Logout()
         {
             StartCoroutine(LogoutCoroutine());
@@ -264,7 +264,7 @@ namespace Game
         {
             if (string.IsNullOrEmpty(sessionToken))
             {
-                // Already logged out
+                
                 SceneManager.LoadScene("Log In");
                 yield break;
             }
@@ -274,7 +274,7 @@ namespace Game
             
             yield return req.SendWebRequest();
             
-            // Clear token regardless of server response
+            
             sessionToken = "";
             PlayerPrefs.DeleteKey("SessionToken");
             PlayerPrefs.DeleteKey("Username");
@@ -284,7 +284,7 @@ namespace Game
             SceneManager.LoadScene("Log In");
         }
         
-        // Validate current session
+        
         public IEnumerator ValidateSession(System.Action<bool> callback)
         {
             if (string.IsNullOrEmpty(sessionToken))
@@ -293,7 +293,7 @@ namespace Game
                 yield break;
             }
             
-            // Use a simple endpoint that just validates the token
+            
             UnityWebRequest req = CreateAuthorizedRequest(baseUrl + "/validate-session", "GET");
             req.downloadHandler = new DownloadHandlerBuffer();
             

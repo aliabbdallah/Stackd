@@ -22,10 +22,10 @@ public class LeaderboardController : MonoBehaviour
 
     IEnumerator FetchLeaderboard(int playerScore)
     {
-        // Submit the current score
+        
         yield return StartCoroutine(SubmitScore(playerScore));
 
-        // Fetch the updated leaderboard
+        
         UnityWebRequest request = UnityWebRequest.Get(baseUrl + "/leaderboard");
         yield return request.SendWebRequest();
 
@@ -74,7 +74,7 @@ public class LeaderboardController : MonoBehaviour
     private List<LeaderboardEntry> ParseLeaderboardResponse(string json)
     {
         Debug.Log("[LeaderboardController] Parsing leaderboard response: " + json);
-        // Try to parse as array directly
+        
         if (json.StartsWith("["))
         {
             LeaderboardData data = JsonUtility.FromJson<LeaderboardData>("{\"entries\":" + json + "}");
@@ -83,7 +83,7 @@ public class LeaderboardController : MonoBehaviour
         }
         else
         {
-            // Handle API format {success: true, data: [...]}
+            
             int dataStartIndex = json.IndexOf("\"data\":");
             if (dataStartIndex == -1) throw new System.Exception("No data field in response");
             dataStartIndex += 7;

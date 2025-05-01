@@ -23,14 +23,14 @@ namespace Game
                 signUpView.ShowError("All fields are required");
                 return;
             }
-            // Call APIManager for registration with callbacks
+            
             apiManager.RegisterUser(
                 username,
                 email,
                 password,
                 () => {
                     signUpView.ClearFields();
-                    // Load the login scene directly
+                    
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Log In");
                 },
                 (errorMsg) => {
@@ -41,7 +41,7 @@ namespace Game
 
         private void HandleErrorCleared()
         {
-            // Optionally handle error cleared event
+            
         }
     }
 } 

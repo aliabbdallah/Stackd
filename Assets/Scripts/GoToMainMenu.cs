@@ -5,6 +5,16 @@ public class GoToMainMenu : MonoBehaviour
 {
     public void GoToMain()
     {
-        SceneManager.LoadScene(3); // Or use SceneManager.LoadScene("Main Menu"); if you prefer by name
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null && Time.timeScale == 0f)
+        {
+            gameManager.TogglePause();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+
+        SceneManager.LoadScene(3);
     }
 } 
