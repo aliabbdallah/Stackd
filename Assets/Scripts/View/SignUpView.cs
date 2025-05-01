@@ -14,15 +14,31 @@ namespace Game
         public GameObject errorPanel;
         public Button okButton;
 
+        // Reference to APIManager for validation
+        private APIManager apiManager;
+
         // Event for sign up button click
         public event Action<string, string, string> OnSignUpAttempt;
         public event Action OnErrorCleared;
 
         void Start()
         {
+            apiManager = FindObjectOfType<APIManager>();
             signUpButton.onClick.AddListener(HandleSignUpButtonClicked);
             okButton.onClick.AddListener(ClearError);
             errorPanel.SetActive(false);
+
+            // Add password validation listener
+            passwordInput.onValueChanged.AddListener(ValidatePassword);
+
+            // Initially disable signup button
+            signUpButton.interactable = false;
+        }
+
+        private void ValidatePassword(string password)
+        {
+            // Enable button only if password is long enough
+            signUpButton.interactable = password.Length >= 7;
         }
 
         private void HandleSignUpButtonClicked()
@@ -50,6 +66,7 @@ namespace Game
             usernameInput.text = "";
             emailInput.text = "";
             passwordInput.text = "";
+            signUpButton.interactable = false;
         }
     }
 } 

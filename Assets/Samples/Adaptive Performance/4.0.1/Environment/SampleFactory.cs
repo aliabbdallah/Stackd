@@ -7,7 +7,6 @@ public class SampleFactory : MonoBehaviour
     public GameObject prefab;
     public int LimitCount = 2000;
     public Text spawnedObjectsCounter;
-
     public bool RunTest = true;
 
     public int internalObjs = 0;

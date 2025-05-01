@@ -1,10 +1,17 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro; 
+using TMPro;
+using GameStatePattern;
+using System;
 
 public class GameManager : MonoBehaviour
 {
+    // Events for the Observer Pattern
+    public static event Action<int> OnScoreChanged;
+    public static event Action<int> OnGameOver;
+    public static event Action OnGameRestart;
+
     [Header("Block Settings")]
     public GameObject blockPrefab;
     public float SpawnDistanceAfterThirdBlock = 10f;  // Constant distance above camera position
@@ -12,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI References")]
     public GameOverView gameOverView;
+    public GameObject pausePanel; // Assign this in the Inspector
     
     [Header("Ground Reference")]
     public GameObject Ground; // Reference to the ground GameObject
@@ -24,10 +32,21 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public bool isGameActive = true;
     
+    private GameStateContext gameStateContext;
+    
     void Start()
     {
-        // Spawn the first block to start the game
+        gameStateContext = new GameStateContext(this);
+        gameStateContext.SetState(new PlayingState());
         SpawnNewBlock();
+    }
+    
+    void Update()
+    {
+        if (gameStateContext != null)
+        {
+            gameStateContext.Update();
+        }
     }
     
     public void SpawnNewBlock()
@@ -52,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            float spawnY = mainCamera.transform.position.y + SpawnDistanceAfterThirdBlock; //The Height the new spawned block from the camera
+            float spawnY = mainCamera.transform.position.y + SpawnDistanceAfterThirdBlock; 
             Vector3 spawnPosition = new Vector3(0f, spawnY, 0f);
             currentBlock = Instantiate(blockPrefab, spawnPosition, Quaternion.identity);
         }
@@ -76,10 +95,9 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        // Increment score
+        // Increment score and notify observers
         score++;
-        Debug.Log("Score: " + score);
-        
+        OnScoreChanged?.Invoke(score);        
         // Spawn next block with a delay to let the camera adjust
         StartCoroutine(SpawnBlockWithDelay());
     } 
@@ -124,17 +142,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over! Final Score: " + score);
-        isGameActive = false; // End the game
-
-        // Show the game over panel using MVC
-        if (gameOverView != null)
-        {
-            gameOverView.Show(score);
-        }
-        else
-        {
-            Debug.LogWarning("[GameManager] No GameOverView assigned.");
-        }
+        gameStateContext.SetState(new GameOverState());
+        
+        // Notify observers about game over
+        OnGameOver?.Invoke(score);
 
         // Update the leaderboard
         LeaderboardController leaderboardController = GetComponent<LeaderboardController>();
@@ -181,21 +192,19 @@ public class GameManager : MonoBehaviour
         
         // Reset score
         score = 0;
+        OnScoreChanged?.Invoke(score);
         
-        // Hide game over panel using MVC
-        if (gameOverView != null)
-        {
-            gameOverView.Hide();
-        }
-
+        // Notify observers about game restart
+        OnGameRestart?.Invoke();
+        
         // Reactivate the ground
         if (Ground != null)
         {
             Ground.SetActive(true);
         }
         
-        // Reactivate the game
-        isGameActive = true;
+        // Reactivate the game state
+        gameStateContext.SetState(new PlayingState());
         
         // Reset camera position
         Camera mainCamera = Camera.main;
@@ -217,5 +226,17 @@ public class GameManager : MonoBehaviour
     {
         yield return null; // Wait one frame
         SpawnNewBlock();
+    }
+
+    public void TogglePause()
+    {
+        if (Time.timeScale == 0f)
+        {
+            gameStateContext.SetState(new PlayingState());
+        }
+        else
+        {
+            gameStateContext.SetState(new PauseState());
+        }
     }
 }

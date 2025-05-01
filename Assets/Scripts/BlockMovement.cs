@@ -56,23 +56,16 @@ public class BlockMovement : MonoBehaviour
     {
         if (seasonPhysics != null && isDropping && !hasSettled)
         {
-            // Apply wind forces if applicable
             if (seasonPhysics.windStrength > 0)
             {
-                float windForce = seasonPhysics.windStrength * Mathf.Sin(Time.time * seasonPhysics.windFrequency);
+                float windForce = seasonPhysics.windStrength;
                 rb.AddForce(Vector2.right * windForce, ForceMode2D.Force);
             }
             
-            // Apply random events if enabled
             if (seasonPhysics.hasRandomEvents && Random.value < 0.02f)
             {
-                // Different random events based on season type could go here
-                // For example, in Autumn we might have stronger gusts
-                if (seasonPhysics.name.Contains("Autumn"))
-                {
-                    float gustStrength = Random.Range(-3f, 3f);
-                    rb.AddForce(Vector2.right * gustStrength, ForceMode2D.Impulse);
-                }
+                float gustStrength = Random.Range(1f, 3f); // Minimum 1 to ensure noticeable push
+                rb.AddForce(Vector2.right * gustStrength, ForceMode2D.Impulse);
             }
         }
     }
@@ -81,7 +74,6 @@ public class BlockMovement : MonoBehaviour
     {
         if (!isDropping)
         {
-            // Move block back and forth (use the seasonPhysics moveSpeed if available)
             float currentMoveSpeed = seasonPhysics != null ? seasonPhysics.moveSpeed : 2.0f;
             float moveDirection = Mathf.Sin(Time.time * currentMoveSpeed);
             Vector3 newPosition = startPosition;
@@ -137,14 +129,12 @@ public class BlockMovement : MonoBehaviour
         }
         else
         {
-            // Reset stable time if it moves too much
             stableTime = 0f;
         }
     }
     
     void ForceSettle()
     {
-        // Force the block to settle if it's taking too long
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         hasSettled = true;

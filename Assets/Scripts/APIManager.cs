@@ -74,13 +74,33 @@ namespace Game
             return req;
         }
 
+        public bool IsValidEmail(string email)
+        {
+            // Remove strict validation, just check if not empty
+            return !string.IsNullOrEmpty(email);
+        }
+
+        public bool IsValidUsername(string username)
+        {
+            // Remove strict validation, just check if not empty
+            return !string.IsNullOrEmpty(username);
+        }
+
+        public bool IsValidPassword(string password)
+        {
+            // Only check for minimum length of 7 characters
+            return !string.IsNullOrEmpty(password) && password.Length >= 7;
+        }
+
         public void RegisterUser(string username, string email, string password, System.Action onSuccess, System.Action<string> onError)
         {
-            if (!IsValidEmail(email))
+            // Only validate password length
+            if (!IsValidPassword(password))
             {
-                onError?.Invoke("Invalid email format");
+                onError?.Invoke("Password must be at least 7 characters long");
                 return;
             }
+
             StartCoroutine(CheckEmailAvailability(email, (isAvailable) => {
                 if (isAvailable)
                 {
@@ -91,19 +111,6 @@ namespace Game
                     onError?.Invoke("Email is already in use");
                 }
             }));
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-                return regex.IsMatch(email);
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         IEnumerator CheckEmailAvailability(string email, System.Action<bool> callback)
